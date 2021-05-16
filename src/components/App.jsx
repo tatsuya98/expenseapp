@@ -44,20 +44,19 @@ function App() {
     function loadExpense(expense) {
         setExpense({
             amount: expense.amount,
-            expenseName: expense.expensetype,
-            date: expense.spenddate
+            expenseName: expense.expense_type,
+            date: expense.spend_date
         })
     }
 
 
     function loadUser(user) {
         setUser({
-            name: user.name,
+            name: user.first_name,
             email: user.email,
             password: user.password,
             userid: user.userid
         })
-        console.log(user.userid)
     }
 
     function routeChange(route) {
@@ -77,7 +76,7 @@ function App() {
          />
          <Expense
          user={user}
-         key ={expenses.id}
+         key ={expenses.map(expense=>{return expense.userid})}
          expenses={expenses}
          routeChange={routeChange}
          setUser={setUser}

@@ -3,7 +3,8 @@ import React, { useState } from "react"
 
 function Register({ routeChange }) {
     const [user, setUser] = useState({
-        name: "",
+        first_name: "",
+        last_name:"",
         email: "",
         password: ""
     })
@@ -11,21 +12,31 @@ function Register({ routeChange }) {
     function onChange(event) {
         const { name, value } = event.target;
         setUser(values => {
-            if (name === "name") {
+            if (name === "first_name") {
                 return {
-                    name: value,
+                    first_name: value,
+                    last_name:values.last_name,
                     email: values.email,
                     password: values.password
                 }
-            } else if (name === "email") {
+            }else if(name === "last_name"){
+                return{
+                    first_name: values.first_name,
+                    last_name:value,
+                    email: values.email,
+                    password: values.password
+                }
+            }else if (name === "email") {
                 return {
-                    name: values.name,
+                    first_name: values.first_name,
+                    last_name:values.last_name,
                     email: value,
                     password: values.password
                 }
             } else if (name === "password") {
                 return {
-                    name: values.name,
+                    first_name: values.first_name,
+                    last_name:values.last_name,
                     email: values.email,
                     password: value
                 }
@@ -34,17 +45,18 @@ function Register({ routeChange }) {
     }
 
     function onClick() {
-        const { email, name, password } = user
-        if (!email || !name || !password) {
+        const { email, first_name, last_name, password } = user
+        if (!email || !first_name || !last_name || !password) {
             alert("fill out the form please")
         } else {
             fetch("http://localhost:3001/register", {
                     method: "post",
                     headers: { "content-type": "application/json" },
                     body: JSON.stringify({
-                        name: user.name,
-                        email: user.email,
-                        password: user.password
+                        first_name: first_name,
+                        last_name:last_name,
+                        email: email,
+                        password: password
                     })
                 })
                 .then(response => response.json())
@@ -59,8 +71,11 @@ function Register({ routeChange }) {
 
     return (
         <div>
-            <label >name
-                <input type="text" name="name"  onChange={onChange} />
+            <label >First Name
+                <input type="text" name="firstName"  onChange={onChange} />
+            </label>
+            <label >Last Name
+                <input type="text" name="lastName"  onChange={onChange} />
             </label>
             <label>email
                 <input type="email" name="email" onChange={onChange} />

@@ -7,7 +7,7 @@ function Expense({ expenses }) {
             {
                 expenses.map(info=>{
                     return <li>
-                        <p>{info.amount} {info.expensetype} {info.spenddate}</p>
+                        <p>{info.amount} {info.expense_type} {info.spend_date}</p>
                     </li>
                 })
             }

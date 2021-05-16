@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3001
 app.use(express.json());
 app.use(cors());
 
-const db = knex(knexfile.development)
+const db = knex(knexfile.production)
 app.post("/", (req, res) => { loadExpenses.showExpenses(req, res, db) })
 app.post("/register", (req, res) => { register.handleRegister(req, res, bcrypt, db) });
 app.post("/expenditure", (req, res) => { expense.handleExpenditure(req, res, db) })
