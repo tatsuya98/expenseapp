@@ -2,12 +2,12 @@ const handleExpenditure = (req, res, db) => {
     const { amount, expenseName, date, userid } = req.body
     db.insert({
             amount: amount,
-            expensetype: expenseName,
-            spenddate: date,
-            userid: userid
+            expense_type: expenseName,
+            spend_date: date,
+            user_id: userid
         })
-        .into('expenditure')
-        .returning('amount', 'expensetype', 'spenddate')
+        .into('expenses')
+        .returning(['amount','expense_type','spend_date'])
         .then(expense => {
             res.json(expense[0])
         })
