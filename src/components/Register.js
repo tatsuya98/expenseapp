@@ -12,14 +12,14 @@ function Register({ routeChange }) {
     function onChange(event) {
         const { name, value } = event.target;
         setUser(values => {
-            if (name === "first_name") {
+            if (name === "firstName") {
                 return {
                     first_name: value,
                     last_name:values.last_name,
                     email: values.email,
                     password: values.password
                 }
-            }else if(name === "last_name"){
+            }else if(name === "lastName"){
                 return{
                     first_name: values.first_name,
                     last_name:value,
