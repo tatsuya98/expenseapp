@@ -46,7 +46,7 @@ function Login({ routeChange, loadUser, setExpenses }) {
         if (!email || !password) {
             alert("please enter your email and password")
         } else {
-            fetch("http://localhost:3001/login", {
+            fetch("https://practiseapp001.herokuapp.com/login", {
                     method: "post",
                     headers: { "content-type": "application/json" },
                     body: JSON.stringify({
