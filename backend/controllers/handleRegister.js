@@ -19,7 +19,7 @@ const handleRegister = (req, res, bcrypt, db) => {
                     .then(userName => {
                         res.json(userName[0]);
                     })
-                    .catch(err => { res.status(400).json("something went wrong when trying to sign with this email") })
+                    .catch(err => { res.status(400).json(err) })
             })
             .then(trx.commit)
             .catch(trx.rollback)
