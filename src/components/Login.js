@@ -16,10 +16,11 @@ function Login({ routeChange, loadUser, setExpenses }) {
                     user_id: userid
                 })
             })
-            .then(response => response.json())
-            .then(data => {
-                setExpenses([...data])
-            })
+            .then(response => response.text())
+            .then(data=>console.log(data))
+            // .then(data => {
+            //     setExpenses([...data])
+            // })
             .catch(err => console.log(err))
     }
 

@@ -59,12 +59,13 @@ function Register({ routeChange }) {
                         password: password
                     })
                 })
-                .then(response => response.json())
-                .then(data => {
-                    if (data) {
-                        routeChange("login")
-                    }
-                })
+                .then(response => response.text())
+                .then(data=>console.log(data))
+                // .then(data => {
+                //     if (data) {
+                //         routeChange("login")
+                //     }
+                // })
                 .catch(err => console.log(err))
         }
     }
