@@ -9,7 +9,7 @@ function Login({ routeChange, loadUser, setExpenses }) {
 
 
     function fetchExpenses(userid) {
-        fetch("http://localhost:3001/", {
+        fetch("https://practiseapp001.herokuapp.com/", {
                 method: "post",
                 headers: { "content-type": "application/json" },
                 body: JSON.stringify({
