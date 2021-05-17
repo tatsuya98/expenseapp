@@ -65,7 +65,7 @@ function Register({ routeChange }) {
                         routeChange("login")
                     }
                 })
-                .catch(err => alert("something went wrong"))
+                .catch(err => console.log(err))
         }
     }
 
