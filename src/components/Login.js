@@ -13,12 +13,11 @@ function Login({ routeChange, loadUser, setExpenses }) {
                 method: "post",
                 headers: { "content-type": "application/json" },
                 body: JSON.stringify({
-                    userid: userid
+                    user_id: userid
                 })
             })
             .then(response => response.json())
             .then(data => {
-                console.log(data)
                 setExpenses([...data])
             })
             .catch(err => console.log(err))
@@ -56,9 +55,9 @@ function Login({ routeChange, loadUser, setExpenses }) {
                 })
                 .then(response => response.json())
                 .then(data => {
-                    if (data.userid) {
+                    if (data.user_id) {
                         loadUser(data)
-                        fetchExpenses(data.userid)
+                        fetchExpenses(data.user_id)
                         routeChange("home")
                     }
                 })

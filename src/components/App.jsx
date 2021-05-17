@@ -10,7 +10,7 @@ function App() {
         name: "",
         email: "",
         password: "",
-        userid: ""
+        user_id: ""
     })
     const [route, setRoute] = useState("login")
     const [expense, setExpense] = useState({
@@ -24,7 +24,7 @@ function App() {
                     method: "post",
                     headers: { "content-type": "application/json" },
                     body: JSON.stringify({
-                        userid: user.userid
+                        user_id: user.user_id
                     })
                 })
                 .then(response => response.json())
@@ -38,7 +38,7 @@ function App() {
         if(expense.amount !== ""){
             updateExpenses()
         }
-    }, [expense.amount, user.userid])
+    }, [expense.amount, user.user_id])
 
 
 
@@ -57,7 +57,7 @@ function App() {
             name: user.first_name,
             email: user.email,
             password: user.password,
-            userid: user.userid
+            user_id: user.user_id
         })
     }
 
@@ -74,7 +74,7 @@ function App() {
                 setExpenses={setExpenses}
                  setUser={setUser}
                 routeChange={routeChange}
-                userid={user.userid}
+                userid={user.user_id}
          />
          <Expense
          user={user}
@@ -94,7 +94,7 @@ function App() {
                 loadUser={loadUser}
                 setExpenses={setExpenses}
                  routeChange={routeChange}
-                userid={user.userid}
+                userid={user.user_id}
                  />
                 </div>
             )

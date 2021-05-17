@@ -14,7 +14,7 @@ function Input({ loadExpense, userid, setUser, setExpenses, routeChange }) {
             name: "",
             email: "",
             password: "",
-            userid: ""
+            user_id: ""
         })
         routeChange("login")
     }
@@ -30,7 +30,7 @@ function Input({ loadExpense, userid, setUser, setExpenses, routeChange }) {
                     amount: expense.amount,
                     expenseName: expense.expenseName,
                     date: expense.date,
-                    userid: userid
+                    user_id: userid
                 })
             })
             .then(response => response.json())
