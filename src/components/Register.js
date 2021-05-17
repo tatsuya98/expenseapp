@@ -49,7 +49,7 @@ function Register({ routeChange }) {
         if (!email || !first_name || !last_name || !password) {
             alert("fill out the form please")
         } else {
-            fetch("http://localhost:3001/register", {
+            fetch("https://practiseapp001.herokuapp.com/register", {
                     method: "post",
                     headers: { "content-type": "application/json" },
                     body: JSON.stringify({
