@@ -20,7 +20,7 @@ function App() {
     })
     useEffect(() => {
         function updateExpenses() {
-            fetch("http://localhost:3001/", {
+            fetch("https://practiseapp001.herokuapp.com/", {
                     method: "post",
                     headers: { "content-type": "application/json" },
                     body: JSON.stringify({
@@ -35,7 +35,9 @@ function App() {
                 })
                 .catch(err => { console.log(err) })
         }
-        updateExpenses()
+        if(expense.amount !== ""){
+            updateExpenses()
+        }
     }, [expense.amount, user.userid])
 
 
