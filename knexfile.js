@@ -27,6 +27,8 @@ module.exports = {
             min: 2,
             max: 10
         },
-        ssl: true
+        ssl: {
+            rejectUnauthorized: false
+          },
     }
 }
