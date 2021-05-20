@@ -53,7 +53,9 @@ function Login({ routeChange, loadUser, setExpenses }) {
                         password: user.password
                     })
                 })
+                .catch(err=>console.log(err))
                 .then(response => response.json())
+                .catch(err=>console.log(err))
                 .then(data => {
                     if (data.user_id) {
                         loadUser(data)
