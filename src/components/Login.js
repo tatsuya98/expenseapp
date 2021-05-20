@@ -9,7 +9,7 @@ function Login({ routeChange, loadUser, setExpenses }) {
 
 
     function fetchExpenses(userid) {
-        fetch("https://localhost:5000/", {
+        fetch("https://practiseapp001.herokuapp.com/", {
                 method: "post",
                 headers: { "content-type": "application/json" },
                 body: JSON.stringify({
@@ -45,7 +45,7 @@ function Login({ routeChange, loadUser, setExpenses }) {
         if (!email || !password) {
             alert("please enter your email and password")
         } else {
-            fetch("https://localhost:5000/login", {
+            fetch("https://practiseapp001.herokuapp.com/login", {
                     method: "post",
                     headers: { "content-type": "application/json" },
                     body: JSON.stringify({

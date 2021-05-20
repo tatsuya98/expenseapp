@@ -20,7 +20,7 @@ function App() {
     })
     useEffect(() => {
         function updateExpenses() {
-            fetch("https://localhost:5000/", {
+            fetch("https://practiseapp001.herokuapp.com/", {
                     method: "post",
                     headers: { "content-type": "application/json" },
                     body: JSON.stringify({
