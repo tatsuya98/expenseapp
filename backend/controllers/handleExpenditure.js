@@ -9,7 +9,7 @@ const handleExpenditure = (req, res, db) => {
         .into('expenses')
         .returning(['amount','expense_type','spend_date'])
         .then(expense => {
-            res.json(expense[0])
+            return res.json(expense[0])
         })
         .catch(err => { res.json(err) })
 }

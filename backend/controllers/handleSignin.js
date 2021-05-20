@@ -1,4 +1,5 @@
 const handleSignin = (req, res, db, bcrypt) => {
+    console.log("hi")
     const { email, password } = req.body
     db.select("hash", "email").from("login").where("email", "=", email)
         .then(data => {
@@ -6,7 +7,7 @@ const handleSignin = (req, res, db, bcrypt) => {
             if (isValid) {
                 db.select("first_name", "user_id").from("users").where("email", "=", email)
                     .then(user => {
-                        res.json(user[0])
+                        return res.json(user[0])
                     })
                     .catch(err => { res.status(400).json(err) })
             } else {
