@@ -55,7 +55,7 @@ function Login({ routeChange, loadUser, setExpenses }) {
                 })
                 .catch(err=>console.log(err))
                 .then(response => response.json())
-                .catch(err=>console.log(err))
+                // .catch(err=>console.log(err))
                 .then(data => {
                     if (data.user_id) {
                         loadUser(data)
@@ -63,7 +63,7 @@ function Login({ routeChange, loadUser, setExpenses }) {
                         routeChange("home")
                     }
                 })
-                .catch(err => console.log(err))
+                // .catch(err => console.log(err))
         }
     }
 
