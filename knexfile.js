@@ -1,5 +1,4 @@
 // Update with your config settings.
-require('dotenv').config();
 module.exports = {
 
     development: {
@@ -19,7 +18,11 @@ module.exports = {
     },
     production:{
         client:'pg',
-        connection: process.env.DATABASE_URL,
+        connection: {
+            database: process.env.DATABASE,
+            user: process.env.USER,
+            password: process.env.PASSWORD
+        },
         migrations: {
             directory: __dirname + '/backend/migrations'
         },

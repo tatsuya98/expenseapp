@@ -6,9 +6,9 @@ const expense = require('./controllers/handleExpenditure')
 const loadExpenses = require('./controllers/showExpenses')
 const login = require('./controllers/handleSignin')
 const register = require('./controllers/handleRegister')
-const PORT = process.env.PORT || 3001
+const PORT = process.env.PORT || 5000
+app.use(cors())
 app.use(express.json());
-app.use(cors());
 
 const db = process.env.NODE_ENV || 'development'
 app.post("/", (req, res) => { loadExpenses.showExpenses(req, res, db) })
