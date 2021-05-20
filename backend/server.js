@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const knex = require('knex')
 const cors = require('cors');
 const bcrypt = require('bcrypt-nodejs')
 const expense = require('./controllers/handleExpenditure')
@@ -10,7 +11,7 @@ const PORT = process.env.PORT || 5000
 app.use(cors())
 app.use(express.json());
 
-const db = process.env.NODE_ENV || 'development'
+const db = knex(process.env.NODE_ENV || 'development')
 app.post("/", (req, res) => { loadExpenses.showExpenses(req, res, db) })
 app.post("/register", (req, res) => { register.handleRegister(req, res, bcrypt, db) });
 app.post("/expenditure", (req, res) => { expense.handleExpenditure(req, res, db) })
