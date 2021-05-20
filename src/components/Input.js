@@ -20,7 +20,7 @@ function Input({ loadExpense, userid, setUser, setExpenses, routeChange }) {
     }
 
     function onAdd() {
-        fetch("https://practiseapp001.herokuapp.com/expenditure", {
+        fetch("https://localhost:5000/expenditure", {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
