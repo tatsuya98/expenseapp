@@ -47,7 +47,7 @@ function Login({ routeChange, loadUser, setExpenses }) {
         } else {
             fetch("https://practiseapp001.herokuapp.com/login", {
                     method: "post",
-                    headers: { "content-type": "application/json" },
+                    headers: {"content-type": "application/json"},
                     body: JSON.stringify({
                         email: user.email,
                         password: user.password
@@ -61,9 +61,11 @@ function Login({ routeChange, loadUser, setExpenses }) {
                         loadUser(data)
                         fetchExpenses(data.user_id)
                         routeChange("home")
+                    }else{
+                        alert("email or password is incorrect")
                     }
                 })
-                // .catch(err => console.log(err))
+                .catch(err => console.log(err))
         }
     }
 

@@ -59,11 +59,11 @@ function Register({ routeChange }) {
                         password: password
                     })
                 })
-                .catch(err=>console.log(err))
                 .then(response => response.json())
-                .catch(err=>console.log(err))
                 .then(data => {
-                    if (data) {
+                    if (data === false) {
+                        alert("email already exists")
+                    }else{
                         routeChange("login")
                     }
                 })
