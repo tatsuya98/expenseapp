@@ -20,7 +20,7 @@ const db = knex({
 })
 app.use(cors())
 app.use(express.json())
-app.use('/',express.static(path.join(__dirname,'build')))
+app.use('/static',express.static(path.join(__dirname,'build')))
 app.post('/register',(req,res)=>{register.handleRegister(req,res,db,bcrypt)})
 app.post('/login',(req,res)=>{login.handleLogin(req,res,db,bcrypt)})
 app.get('/:user_id',(req,res)=>{expenses.handleExpenses(req,res,db)})
