@@ -9,13 +9,7 @@ function Login({ routeChange, loadUser, setExpenses }) {
 
 
     function fetchExpenses(userid) {
-        fetch("https://practiseapp001.herokuapp.com/", {
-                method: "post",
-                headers: { "content-type": "application/json" },
-                body: JSON.stringify({
-                    user_id: userid
-                })
-            })
+        fetch(`https://practiseapp001.herokuapp.com/${userid}`)
             .then(response => response.json())
             .then(data => {
                 setExpenses([...data])

@@ -1,14 +1,14 @@
 import React, { useState } from "react"
 
 
-function Input({ loadExpense, userid, setUser, setExpenses, routeChange }) {
+function Input({ userid, setUser, setExpenses, routeChange }) {
     const [expense, setExpense] = useState({
-        date: "",
-        expenseName: "",
+        spend_date: "",
+        expense_type: "",
         amount: ""
     })
 
-    function onClick() {
+    function onSignOutClick() {
         setExpenses([])
         setUser({
             name: "",
@@ -20,7 +20,7 @@ function Input({ loadExpense, userid, setUser, setExpenses, routeChange }) {
     }
 
     function onAdd() {
-        fetch("https://practiseapp001.herokuapp.com/expenditure", {
+        fetch("https://practiseapp001.herokuapp.com/expense", {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -28,36 +28,38 @@ function Input({ loadExpense, userid, setUser, setExpenses, routeChange }) {
                 },
                 body: JSON.stringify({
                     amount: expense.amount,
-                    expenseName: expense.expenseName,
-                    date: expense.date,
+                    expense_type: expense.expense_type,
+                    spend_date: expense.spend_date,
                     user_id: userid
                 })
             })
             .then(response => response.json())
             .then(data => {
-                loadExpense(data)
+                setExpenses(values=>{
+                   return [...values,data]
+                })
             })
     }
 
     function handleEvent(event) {
         const { value, name } = event.target
         setExpense((preValues) => {
-            if (name === "date") {
+            if (name === "spend_date") {
                 return {
-                    date: value,
-                    expenseName: preValues.expenseName,
+                    spend_date: value,
+                    expense_type: preValues.expense_type,
                     amount: preValues.amount
                 }
-            } else if (name === "expenseName") {
+            } else if (name === "expense_type") {
                 return {
-                    date: preValues.date,
-                    expenseName: value,
+                    spend_date: preValues.spend_date,
+                    expense_type: value,
                     amount: preValues.amount
                 }
             } else if (name === "amount") {
                 return {
-                    date: preValues.date,
-                    expenseName: preValues.expenseName,
+                    spend_date: preValues.spend_date,
+                    expense_type: preValues.expense_type,
                     amount: value
                 }
             }
@@ -67,13 +69,13 @@ function Input({ loadExpense, userid, setUser, setExpenses, routeChange }) {
     return (
         <div>
         <input onChange={handleEvent}type="text" name="amount"placeholder = "amount"/>
-            <input onChange={handleEvent}type="text" name="expenseName"placeholder = "expenseName"/>
-            <input onChange={handleEvent}type="date" name="date" placeholder = "date of expense"/>
+            <input onChange={handleEvent}type="text" name="expense_type"placeholder = "expense type"/>
+            <input onChange={handleEvent}type="date" name="spend_date" placeholder = "spend date"/>
             <button onClick={()=>{
                 onAdd()
                 }}>+</button>
             <button type="submit" onClick={()=>{
-                onClick()
+                onSignOutClick()
             }}>Sign Out</button>
             </div>
     )
