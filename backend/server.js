@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const bcrypt = require('bcrypt-nodejs')
+const path = require('path')
 const knex = require('knex')
 const register = require('./controllers/handleRegister')
 const login = require('./controllers/handleLogin')
@@ -19,10 +20,9 @@ const db = knex({
 })
 app.use(cors())
 app.use(express.json())
+app.use('/',express.static(path.join(__dirname,'build')))
 app.post('/register',(req,res)=>{register.handleRegister(req,res,db,bcrypt)})
-
 app.post('/login',(req,res)=>{login.handleLogin(req,res,db,bcrypt)})
-
 app.get('/:user_id',(req,res)=>{expenses.handleExpenses(req,res,db)})
 app.post('/expense',(req,res)=>{expense.handleExpense(req,res,db)})
 
