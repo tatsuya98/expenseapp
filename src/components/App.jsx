@@ -1,8 +1,10 @@
 import React, { useState} from "react"
-import Expense from "./Expense"
-import Input from "./Input"
-import Login from "./Login"
-import Register from "./Register"
+import Expense from "./expense/Expense"
+import Input from "./input/Input"
+import Login from "./login/Login"
+import Register from "./register/Register"
+import "./app.css"
+
 
 function App() {
     const [expenses, setExpenses] = useState([])
@@ -30,7 +32,8 @@ function App() {
     function handleRoute() {
         if (route === "home") {
             return (
-                <div>
+                <div className="container">
+                    <h1>Hello, {user.name}</h1>
                 <Input
                 setExpenses={setExpenses}
                  setUser={setUser}
@@ -49,7 +52,7 @@ function App() {
             )
         } else if (route === "login") {
             return (
-                <div>
+                <div className="container">
                 <Login
                 user={user}
                 loadUser={loadUser}
@@ -61,7 +64,8 @@ function App() {
             )
         } else if (route === "register") {
             return (
-                <div>
+                <div className="container_app">
+                    <h1> Register </h1>
                     <Register
                     routeChange={routeChange}
                      />

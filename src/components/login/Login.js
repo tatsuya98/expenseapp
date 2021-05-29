@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import "./login.css"
 
 
 function Login({ routeChange, loadUser, setExpenses }) {
@@ -63,20 +64,21 @@ function Login({ routeChange, loadUser, setExpenses }) {
 
     return (
         <div>
-        <div style={{display:"flex"}}>
+            <h1>Login</h1>
+        <div className="login" >
             <label>email
                 <input type="email" name="email" onChange={onChange} />
             </label>
             <label>password
                 <input type="password" name="password" onChange={onChange} />
             </label>
-            <button type="submit" onClick={()=>{
+            <nav>
+               <button onClick={()=>{routeChange("register")}}>Register</button>
+               <button type="submit" onClick={()=>{
                 onClick()
             }}>Login</button>
-            </div>
-            <nav>
-                <p style={{display: "flex", justifyContent:"flex-end"}} onClick={()=>{routeChange("register")}}>Register</p>
             </nav>
+            </div>
         </div>
     )
 }

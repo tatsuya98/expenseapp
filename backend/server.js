@@ -11,10 +11,10 @@ const PORT = process.env.PORT || 3000
 const db = knex({
     client:'pg',
     connection:{
-        connectionString: process.env.DATABASE_URL,
+        cconnectionString: process.env.DATABASE_URL,
         ssl: {
-                rejectUnauthorized: false
-         }
+          rejectUnauthorized: false
+        }
     }
 })
 app.use(cors())

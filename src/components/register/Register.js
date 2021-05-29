@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-
+import "./register.css"
 
 function Register({ routeChange }) {
     const [user, setUser] = useState({
@@ -72,7 +72,8 @@ function Register({ routeChange }) {
     }
 
     return (
-        <div>
+        <div className="container">
+            <div className="register">
             <label >First Name
                 <input type="text" name="firstName"  onChange={onChange} />
             </label>
@@ -85,11 +86,14 @@ function Register({ routeChange }) {
             <label>password
                 <input type="password" name="password" onChange={onChange} />
             </label>
+            <nav>
+            <button onClick={()=>{routeChange("login")}}>login</button>
             <button type="submit" onClick={()=>{
                 onClick()
             }}>Register</button>
+            </nav>
+            </div>
             <nav>
-                <p style={{display: "flex", justifyContent:"flex-end"}} onClick={()=>{routeChange("login")}}>Login</p>
             </nav>
         </div>
     )
