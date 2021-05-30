@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 
 
-function Input({ userid, setUser, setExpenses, routeChange }) {
+function Input({ name, userid, setUser, setExpenses, routeChange }) {
     const [expense, setExpense] = useState({
         spend_date: "",
         expense_type: "",
@@ -68,6 +68,7 @@ function Input({ userid, setUser, setExpenses, routeChange }) {
 
     return (
         <div>
+            <h1>Hello, {name}</h1>
         <input onChange={handleEvent}type="text" name="amount"placeholder = "amount"/>
             <input onChange={handleEvent}type="text" name="expense_type"placeholder = "expense type"/>
             <input onChange={handleEvent}type="date" name="spend_date" placeholder = "spend date"/>

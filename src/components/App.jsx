@@ -33,8 +33,8 @@ function App() {
         if (route === "home") {
             return (
                 <div className="container">
-                    <h1>Hello, {user.name}</h1>
                 <Input
+                name={user.name}
                 setExpenses={setExpenses}
                  setUser={setUser}
                 routeChange={routeChange}
