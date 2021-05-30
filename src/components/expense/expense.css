@@ -1,0 +1,12 @@
+td, th {
+    border: 1px solid #080202;
+    text-align: left;
+    padding: 8px;
+  }
+
+.table{
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+    justify-content: center;
+}

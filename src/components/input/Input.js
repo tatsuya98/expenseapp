@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import "./input.css"
 
 
 function Input({ name, userid, setUser, setExpenses, routeChange }) {
@@ -67,9 +68,9 @@ function Input({ name, userid, setUser, setExpenses, routeChange }) {
     }
 
     return (
-        <div>
+        <div className="input">
             <h1>Hello, {name}</h1>
-        <input onChange={handleEvent}type="text" name="amount"placeholder = "amount"/>
+            <input onChange={handleEvent}type="text" name="amount"placeholder = "amount"/>
             <input onChange={handleEvent}type="text" name="expense_type"placeholder = "expense type"/>
             <input onChange={handleEvent}type="date" name="spend_date" placeholder = "spend date"/>
             <button onClick={()=>{

@@ -2,3 +2,8 @@
     height: auto;
     text-align: center;
 }
+.home{
+    display: flex;
+    justify-content: center;
+    height: 75%;
+}
